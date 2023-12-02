@@ -1,0 +1,45 @@
+
+
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# Assume you have a CSV file containing housing data
+file_path = 'housing_data.csv'
+df = pd.read_csv(file_path)
+
+# Display the first few rows of the dataset
+print(df.head())
+
+# Summary statistics
+summary_stats = df.describe()
+print(summary_stats)
+
+# Correlation matrix heatmap
+correlation_matrix = df.corr()
+plt.figure(figsize=(12, 8))
+sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', fmt=".2f")
+plt.title('Correlation Matrix')
+plt.show()
+
+# Pairplot for selected features
+sns.pairplot(df[['price', 'sqft_living', 'bedrooms', 'bathrooms']])
+plt.suptitle('Pairplot of Housing Features', y=1.02)
+plt.show()
+
+# Box plot of housing prices by the number of bedrooms
+plt.figure(figsize=(10, 6))
+sns.boxplot(x='bedrooms', y='price', data=df)
+plt.title('Housing Prices by Number of Bedrooms')
+plt.xlabel('Number of Bedrooms')
+plt.ylabel('Price')
+plt.show()
+
+# Distribution of housing prices
+plt.figure(figsize=(10, 6))
+sns.histplot(df['price'], bins=30, kde=True)
+plt.title('Distribution of Housing Prices')
+plt.xlabel('Price')
+plt.ylabel('Frequency')
+plt.show()
+
