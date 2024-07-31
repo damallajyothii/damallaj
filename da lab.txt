@@ -1,0 +1,14 @@
+Passing Data between Tableau and Python:
+
+You can pass data between Tableau and Python using parameters or input fields.
+The fields specified in the last argument of the SCRIPT function are the input fields that are sent to Python.
+Executing Python Code:
+
+When you use a Tableau worksheet, the calculated field with Python code will execute the Python script on the TabPy server.
+The result of the Python script is then returned to Tableau and used in the visualization.
+Example Use Case:
+Let's consider a simple example where you want to calculate the average of a column using Python:
+
+Create a Calculated Field:
+
+In Tableau Desktop, create a calculated field with the following Python script:
